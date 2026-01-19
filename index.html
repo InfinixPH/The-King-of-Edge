@@ -11,17 +11,11 @@
       --card-bg: rgba(255,255,255,0.06);
       --border: rgba(255,255,255,0.12);
       --shadow: 0 20px 60px rgba(0,0,0,0.55);
+      --radius: 18px;
     }
 
-    *{
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body{
-      height: 100%;
-    }
+    *{ box-sizing: border-box; margin: 0; padding: 0; }
+    html, body{ height: 100%; }
 
     body{
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -32,7 +26,14 @@
         #000 100%
       );
       color: #fff;
-      overflow-y: auto;
+      overflow: hidden; /* PAGE FIXED */
+    }
+
+    .app{
+      height: 100vh;
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
     }
 
     /* ===== HEADER ===== */
@@ -43,10 +44,11 @@
       backdrop-filter: blur(14px);
       background: linear-gradient(
         to bottom,
-        rgba(10,15,20,0.9),
-        rgba(10,15,20,0.55)
+        rgba(10,15,20,0.92),
+        rgba(10,15,20,0.60)
       );
       border-bottom: 1px solid rgba(255,255,255,0.08);
+      flex: 0 0 auto;
     }
 
     .header-wrap{
@@ -56,91 +58,137 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 12px;
     }
 
     .header-title{
       font-size: 15px;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 0.4px;
+      white-space: nowrap;
     }
 
     .header-hint{
       font-size: 12px;
-      opacity: 0.7;
+      opacity: 0.75;
+      text-align: right;
+      line-height: 1.2;
     }
 
-    /* ===== MAIN CONTENT ===== */
+    /* ===== MAIN ===== */
     main{
+      flex: 1 1 auto;
+      min-height: 0;
+      display: flex;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .wrap{
+      width: 100%;
       max-width: 980px;
-      margin: 0 auto;
-      padding: 18px 16px 36px;
+      min-height: 0;
       display: flex;
       flex-direction: column;
-      gap: 20px;
     }
 
     .poster-card{
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 18px;
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow: hidden;
-      transition: transform 0.25s ease;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
     }
 
-    .poster-card:hover{
-      transform: translateY(-2px);
+    /* SCROLL AREA */
+    .poster-scroll{
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      background: #000;
+
+      /* HIDE SCROLLBAR */
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
 
-    .poster-card img{
+    .poster-scroll::-webkit-scrollbar{
+      display: none;
+    }
+
+    .poster-img{
       display: block;
       width: 100%;
       height: auto;
-      background: #000;
     }
 
     /* ===== FOOTER ===== */
     footer{
+      flex: 0 0 auto;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(14px);
+      background: linear-gradient(
+        to top,
+        rgba(10,15,20,0.92),
+        rgba(10,15,20,0.60)
+      );
+    }
+
+    .footer-wrap{
       max-width: 980px;
       margin: 0 auto;
-      padding: 0 16px 28px;
+      padding: 10px 16px 12px;
       text-align: center;
       font-size: 12px;
-      opacity: 0.65;
+      opacity: 0.7;
+    }
+
+    /* ===== MOBILE TWEAKS ===== */
+    @media (max-width: 520px){
+      .header-title{ font-size: 14px; }
+      .header-hint{ font-size: 11px; }
+      main{ padding: 12px; }
     }
   </style>
 </head>
 
 <body>
+  <div class="app">
 
-  <!-- HEADER -->
-  <header>
-    <div class="header-wrap">
-      <div class="header-title">Infinix Note Edge 5G</div>
-      <div class="header-hint">Scroll ↓</div>
-    </div>
-  </header>
+    <!-- HEADER -->
+    <header>
+      <div class="header-wrap">
+        <div class="header-title">Infinix Note Edge 5G</div>
+        <div class="header-hint">Scroll inside the poster ↓</div>
+      </div>
+    </header>
 
-  <!-- MAIN -->
-  <main>
-    <a
-      class="poster-card"
-      href="https://drive.google.com/uc?export=view&id=1F9kqlaPRP0yXdtUSgfnC1BXFSFoa3-i2"
-      target="_blank"
-      rel="noopener"
-    >
-      <img
-        src="https://drive.google.com/uc?export=view&id=1F9kqlaPRP0yXdtUSgfnC1BXFSFoa3-i2"
-        alt="Infinix Note Edge – King of Edge Promo Poster"
-        loading="eager"
-      />
-    </a>
-  </main>
+    <!-- MAIN -->
+    <main>
+      <div class="wrap">
+        <section class="poster-card">
+          <div class="poster-scroll">
+            <img
+              class="poster-img"
+              src="https://drive.google.com/thumbnail?id=1F9kqlaPRP0yXdtUSgfnC1BXFSFoa3-i2&sz=w2000"
+              alt="Infinix Note Edge – King of Edge Promo Poster"
+              loading="eager"
+            />
+          </div>
+        </section>
+      </div>
+    </main>
 
-  <!-- FOOTER -->
-  <footer>
-    © Infinix Promo • King of Edge Campaign
-  </footer>
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-wrap">© Infinix Promo • King of Edge Campaign</div>
+    </footer>
 
+  </div>
 </body>
 </html>
