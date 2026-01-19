@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Infinix Note Edge – King of Edge</title>
+
+  <style>
+    :root{
+      --bg: #0a0f14;
+      --card-bg: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.12);
+      --shadow: 0 20px 60px rgba(0,0,0,0.55);
+    }
+
+    *{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body{
+      height: 100%;
+    }
+
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(
+        1200px 800px at 20% 10%,
+        #1b2d26 0%,
+        var(--bg) 55%,
+        #000 100%
+      );
+      color: #fff;
+      overflow-y: auto;
+    }
+
+    /* ===== HEADER ===== */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(
+        to bottom,
+        rgba(10,15,20,0.9),
+        rgba(10,15,20,0.55)
+      );
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .header-wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-title{
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+
+    .header-hint{
+      font-size: 12px;
+      opacity: 0.7;
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    main{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 18px 16px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .poster-card{
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .poster-card img{
+      display: block;
+      width: 100%;
+      height: auto;
+      background: #000;
+    }
+
+    .poster-card:hover{
+      transform: translateY(-2px);
+      transition: transform 0.25s ease;
+    }
+
+    /* ===== FOOTER ===== */
+    footer{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 16px 28px;
+      text-align: center;
+      font-size: 12px;
+      opacity: 0.65;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-wrap">
+      <div class="header-title">Infinix Note Edge 5G</div>
+      <div class="header-hint">Scroll ↓</div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <a class="poster-card" href="note-edge.jpg" target="_blank" rel="noopener">
+      <img
+        src="note-edge.jpg"
+        alt="Infinix Note Edge – King of Edge Promo Poster"
+        loading="eager"
+      />
+    </a>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    © Infinix Promo • King of Edge Campaign
+  </footer>
+
+</body>
+</html>
