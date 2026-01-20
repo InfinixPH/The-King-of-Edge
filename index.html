@@ -116,15 +116,16 @@
       scrollbar-width: none;
       -ms-overflow-style: none;
     }
+    .poster-scroll::-webkit-scrollbar{ display: none; }
 
-    .poster-scroll::-webkit-scrollbar{
-      display: none;
-    }
-
+    /* IMPORTANT: prevent blurry upscale */
     .poster-img{
       display: block;
-      width: 100%;
+      max-width: 100%;
+      width: auto;      /* don't force stretch */
       height: auto;
+      margin: 0 auto;   /* center if image is narrower */
+      image-rendering: auto;
     }
 
     /* ===== FOOTER ===== */
@@ -175,9 +176,10 @@
           <div class="poster-scroll">
             <img
               class="poster-img"
-              src="https://drive.google.com/uc?export=view&id=1BjlKufrqyHTl6fD2ThBIEpG4avIZ_srA&v=2"
+              src="https://drive.google.com/uc?export=download&id=1F9kqlaPRP0yXdtUSgfnC1BXFSFoa3-i2&v=2"
               alt="Infinix Note Edge – King of Edge Promo Poster"
-               loading="eager"
+              loading="eager"
+              decoding="async"
             />
           </div>
         </section>
@@ -192,5 +194,3 @@
   </div>
 </body>
 </html>
-
-
