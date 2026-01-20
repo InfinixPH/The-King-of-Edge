@@ -116,15 +116,16 @@
       scrollbar-width: none;
       -ms-overflow-style: none;
     }
-    .poster-scroll::-webkit-scrollbar{ display: none; }
 
-    /* IMAGE (NO UPSCALE = NO BLUR) */
+    .poster-scroll::-webkit-scrollbar{
+      display: none;
+    }
+
+    /* ✅ FIT TO CARD WIDTH (NO SIDE BLACK BARS) */
     .poster-img{
       display: block;
-      max-width: 100%;
-      width: auto;      /* don't force stretch */
+      width: 100%;
       height: auto;
-      margin: 0 auto;   /* center if image is narrower */
     }
 
     /* ===== FOOTER ===== */
