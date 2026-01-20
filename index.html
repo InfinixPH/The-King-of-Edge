@@ -26,7 +26,7 @@
         #000 100%
       );
       color: #fff;
-      overflow: hidden;
+      overflow: hidden; /* PAGE FIXED */
     }
 
     .app{
@@ -36,7 +36,7 @@
       flex-direction: column;
     }
 
-    /* HEADER */
+    /* ===== HEADER ===== */
     header{
       position: sticky;
       top: 0;
@@ -48,6 +48,7 @@
         rgba(10,15,20,0.60)
       );
       border-bottom: 1px solid rgba(255,255,255,0.08);
+      flex: 0 0 auto;
     }
 
     .header-wrap{
@@ -64,6 +65,7 @@
       font-size: 15px;
       font-weight: 800;
       letter-spacing: 0.4px;
+      white-space: nowrap;
     }
 
     .header-hint{
@@ -73,9 +75,9 @@
       line-height: 1.2;
     }
 
-    /* MAIN */
+    /* ===== MAIN ===== */
     main{
-      flex: 1;
+      flex: 1 1 auto;
       min-height: 0;
       display: flex;
       justify-content: center;
@@ -103,11 +105,14 @@
 
     /* SCROLL AREA */
     .poster-scroll{
-      flex: 1;
+      flex: 1 1 auto;
       min-height: 0;
       overflow-y: auto;
       overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
       background: #000;
+
+      /* HIDE SCROLLBAR */
       scrollbar-width: none;
       -ms-overflow-style: none;
     }
@@ -117,13 +122,14 @@
     .poster-img{
       display: block;
       max-width: 100%;
-      width: auto;
+      width: auto;      /* don't force stretch */
       height: auto;
-      margin: 0 auto;
+      margin: 0 auto;   /* center if image is narrower */
     }
 
-    /* FOOTER */
+    /* ===== FOOTER ===== */
     footer{
+      flex: 0 0 auto;
       border-top: 1px solid rgba(255,255,255,0.08);
       backdrop-filter: blur(14px);
       background: linear-gradient(
@@ -142,6 +148,7 @@
       opacity: 0.7;
     }
 
+    /* ===== MOBILE TWEAKS ===== */
     @media (max-width: 520px){
       .header-title{ font-size: 14px; }
       .header-hint{ font-size: 11px; }
@@ -166,23 +173,13 @@
       <div class="wrap">
         <section class="poster-card">
           <div class="poster-scroll">
-
-            <!-- DRIVE IMAGE WITH FALLBACK -->
-            <picture>
-              <!-- Full-resolution attempt -->
-              <source srcset="https://drive.google.com/uc?export=view&id=1F9kqlaPRP0yXdtUSgfnC1BXFSFoa3-i2&v=3">
-
-              <!-- Fallback thumbnail (always loads) -->
-              <img
-                class="poster-img"
-                src="https://drive.google.com/thumbnail?id=1F9kqlaPRP0yXdtUSgfnC1BXFSFoa3-i2&sz=w1200&v=3"
-                alt="Infinix Note Edge – King of Edge Promo Poster"
-                loading="eager"
-                decoding="async"
-                referrerpolicy="no-referrer"
-              />
-            </picture>
-
+            <img
+              class="poster-img"
+              src="./FULL_MECHANICS.png?v=1"
+              alt="Infinix Note Edge – King of Edge Promo Poster"
+              loading="eager"
+              decoding="async"
+            />
           </div>
         </section>
       </div>
